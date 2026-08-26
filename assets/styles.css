@@ -1,0 +1,431 @@
+/* ==========================================================================
+   MegaSure Insurance — shared stylesheet
+   Edit colors/fonts here in one place and every page updates.
+   ========================================================================== */
+
+:root {
+  --blue: #145CEB;         /* primary brand blue */
+  --blue-light: #61B0F2;   /* secondary / outline button */
+  --blue-dark: #1833A0;    /* footer / dark sections */
+  --blue-darker: #10267a;
+  --text: #0C0A09;
+  --text-muted: #57534E;
+  --border: #E7E5E4;
+  --bg-soft: #F5F5F4;
+  --green: #16A34A;
+  --white: #FFFFFF;
+  --radius: 8px;
+  --radius-sm: 6px;
+  --max-width: 1180px;
+  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--white);
+  line-height: 1.5;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { margin: 0 0 12px; line-height: 1.15; font-weight: 700; color: #111827; }
+p { margin: 0 0 16px; color: var(--text-muted); }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 15px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: opacity .15s ease;
+}
+.btn:hover { opacity: .88; }
+.btn-primary { background: var(--blue); color: var(--white); }
+.btn-light { background: var(--blue-light); color: #071018; }
+.btn-outline { background: transparent; color: var(--blue); border-color: var(--blue); }
+.btn-white { background: var(--white); color: var(--blue); }
+.btn-block { width: 100%; justify-content: center; }
+
+/* ---------- Top promo bar ---------- */
+.promo-bar {
+  border-bottom: 1px solid var(--border);
+}
+.promo-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.promo-bar p { margin: 0; color: var(--text-muted); font-size: 15px; }
+
+/* ---------- Header / Nav ---------- */
+header.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+}
+.logo .logo-badge {
+  background: var(--blue);
+  color: var(--white);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+nav.main-nav a { font-weight: 500; color: #374151; }
+nav.main-nav a.active, nav.main-nav a:hover { color: var(--blue); }
+.dropdown { position: relative; }
+.dropdown > button {
+  background: none;
+  border: none;
+  font: inherit;
+  font-weight: 500;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  padding: 0;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(0,0,0,.12);
+  min-width: 220px;
+  padding: 8px;
+}
+.dropdown.open .dropdown-menu { display: block; }
+.dropdown-menu a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  color: #374151;
+  font-weight: 500;
+}
+.dropdown-menu a:hover { background: var(--bg-soft); color: var(--blue); }
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+@media (max-width: 860px) {
+  nav.main-nav { display: none; }
+  .menu-toggle { display: block; }
+  nav.main-nav.mobile-open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px 20px;
+  }
+  .dropdown-menu { position: static; box-shadow: none; margin-top: 4px; }
+}
+
+/* ---------- Hero ---------- */
+.hero { padding: 56px 0 72px; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero h1 { font-size: 44px; color: var(--blue); }
+.hero p.lede { font-size: 18px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+.hero-image { border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.15); }
+@media (max-width: 860px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 32px; }
+}
+
+/* ---------- Stats bar ---------- */
+.stats-bar {
+  background: var(--bg-soft);
+  padding: 32px 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 24px;
+}
+.stats-grid strong { display: block; font-size: 30px; color: var(--blue); }
+.stats-grid span { color: var(--text-muted); font-size: 14px; }
+@media (max-width: 700px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- Section headings ---------- */
+.section { padding: 72px 0; }
+.section-head { max-width: 700px; margin: 0 auto 48px; text-align: center; }
+.section-head h2 { font-size: 32px; }
+
+/* ---------- Cards / grids ---------- */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 860px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  background: var(--white);
+}
+.icon-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  background: var(--blue);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.icon-badge svg { width: 26px; height: 26px; }
+.checklist { list-style: none; margin: 0 0 20px; padding: 0; }
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.checklist li::before { content: "✓"; color: var(--green); font-weight: 700; }
+
+/* ---------- Region / feature list ---------- */
+.feature-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.feature-row .icon-badge { flex-shrink: 0; margin-bottom: 0; }
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  background: linear-gradient(135deg, var(--blue) 0%, #3B63E8 100%);
+  color: var(--white);
+  padding: 72px 0;
+  text-align: center;
+}
+.cta-band h2 { color: var(--white); font-size: 32px; }
+.cta-band p { color: rgba(255,255,255,.85); }
+
+/* ---------- Lead form ---------- */
+.lead-form {
+  background: var(--white);
+  color: var(--text);
+  border-radius: 16px;
+  padding: 36px;
+  max-width: 520px;
+  margin: 32px auto 0;
+  text-align: left;
+  box-shadow: 0 20px 50px rgba(0,0,0,.2);
+}
+.lead-form h3 { text-align: center; }
+.field { margin-bottom: 18px; }
+.field label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+.field .hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.field-row { display: flex; gap: 12px; }
+.field-row .field { flex: 1; }
+
+/* ---------- Contact info cards ---------- */
+.contact-info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  background: var(--bg-soft);
+}
+.contact-info-item .label { font-size: 13px; color: var(--text-muted); margin-bottom: 2px; }
+.contact-info-item .value { font-weight: 700; color: #111827; font-size: 18px; }
+.contact-info-item .sub { font-size: 13px; color: var(--text-muted); }
+
+/* ---------- FAQ (native accordion, no JS needed) ---------- */
+.faq details {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.faq summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: #111827;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; float: right; font-size: 20px; color: var(--blue); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { margin-top: 12px; margin-bottom: 0; }
+
+/* ---------- Pricing cards ---------- */
+.price-card {
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  position: relative;
+  background: var(--white);
+}
+.price-card.popular { border-color: var(--blue); }
+.price-card .badge {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.price-card .amount { font-size: 34px; font-weight: 700; color: var(--blue); }
+.price-card .amount span { font-size: 15px; color: var(--text-muted); font-weight: 500; }
+
+/* ---------- Steps ---------- */
+.steps { display: flex; gap: 24px; flex-wrap: wrap; }
+.step { flex: 1; min-width: 200px; text-align: center; }
+.step .num {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--blue); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; margin: 0 auto 12px;
+}
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  background: var(--blue-dark);
+  color: rgba(255,255,255,.85);
+  padding: 56px 0 24px;
+}
+footer.site-footer .footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  padding-bottom: 32px;
+}
+footer.site-footer .logo { color: var(--white); }
+footer.site-footer h4 { color: var(--white); margin-bottom: 16px; }
+footer.site-footer a { color: rgba(255,255,255,.75); display: block; margin-bottom: 10px; }
+footer.site-footer a:hover { color: var(--white); }
+.social-row { display: flex; gap: 12px; margin-top: 16px; }
+.social-row a {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,.12);
+  display: flex; align-items: center; justify-content: center;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: rgba(255,255,255,.65);
+}
+
+/* ---------- Zip / tool box ---------- */
+.tool-box {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+.tool-box .field-row { margin-top: 16px; }
+
+/* ---------- Calendly floating badge ---------- */
+.calendly-badge {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--blue);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.3;
+  box-shadow: 0 10px 30px rgba(20,92,235,.4);
+  z-index: 60;
+  cursor: pointer;
+  border: none;
+}
+.calendly-badge small { display: block; font-weight: 500; opacity: .85; font-size: 11px; }
+
+.text-center { text-align: center; }
+.mt-32 { margin-top: 32px; }

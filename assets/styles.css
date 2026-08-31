@@ -60,6 +60,35 @@ p { margin: 0 0 16px; color: var(--text-muted); }
 .btn-white { background: var(--white); color: var(--blue); }
 .btn-block { width: 100%; justify-content: center; }
 
+/* ---------- Breadcrumbs ---------- */
+.breadcrumb-bar {
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+}
+.breadcrumb-bar .container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.breadcrumb-bar ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.breadcrumb-bar li:not(:last-child)::after {
+  content: "/";
+  margin-left: 6px;
+  color: var(--border);
+}
+.breadcrumb-bar a { color: var(--text-muted); }
+.breadcrumb-bar a:hover { color: var(--blue); }
+.breadcrumb-bar li[aria-current="page"] { color: var(--text); font-weight: 600; }
+
 /* ---------- Top promo bar ---------- */
 .promo-bar {
   border-bottom: 1px solid var(--border);
